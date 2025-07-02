@@ -1,15 +1,13 @@
 import React from 'react'
-import {Button} from "@/components/ui/button";
+import HeroCarousel from "@/components/Hero";
+import Instructors from "@/components/Instructors";
 
 const Page = () => {
   return (
-      <div>
-        <h1 className="text-2xl">Welcome to Legal Pro PH</h1>
-        <Button>
-          Let&#39;s get started
-        </Button>
-
-      </div>
+      <main>
+          <HeroCarousel />
+          <Instructors />
+      </main>
   )
 }
 
