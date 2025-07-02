@@ -80,7 +80,7 @@ const Header = () => {
                         ))}
 
                         {/* Theme Toggle Button */}
-                        { /* <motion.div
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: navigation.length * 0.1, duration: 0.5 }}
@@ -96,13 +96,13 @@ const Header = () => {
                                 <span className="sr-only">Toggle theme</span>
                             </Button>
                         </motion.div>
-                        */}
+
                     </div>
 
                     {/* Mobile Navigation */}
                     <div className="flex md:hidden">
                         {/* Theme Toggle Button */}
-                        {/* <motion.div
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: navigation.length * 0.1, duration: 0.5 }}
@@ -118,7 +118,6 @@ const Header = () => {
                                 <span className="sr-only">Toggle theme</span>
                             </Button>
                         </motion.div>
-                        */ }
                         <Sheet onOpenChange={setIsMobileMenuOpen}>
                             <SheetTrigger asChild>
                                 <Button variant="ghost" size="icon">
