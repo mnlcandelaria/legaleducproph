@@ -1,8 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useEffect, useRef } from 'react';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious
+} from "@/components/ui/carousel";
 import Image from 'next/image';
+import { CarouselApi } from "@/components/ui/carousel"; // <-- required for typing
 
 const slides = [
     {
@@ -23,13 +31,27 @@ const slides = [
 ];
 
 const HeroCarousel = () => {
+    const carouselRef = useRef<CarouselApi | null>(null);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            carouselRef.current?.scrollNext();
+        }, 4000); // every 3 seconds
+
+        return () => clearInterval(interval); // cleanup
+    }, []);
+
     return (
         <section className="w-full relative">
-            <Carousel opts={{ loop: true }} className="w-full">
+            <Carousel
+                opts={{ loop: true }}
+                setApi={(api) => (carouselRef.current = api)}
+                className="w-full"
+            >
                 <CarouselContent>
                     {slides.map((slide, index) => (
                         <CarouselItem key={index}>
-                            <div className="relative h-[500px] w-full overflow-hidden rounded-lg">
+                            <div className="relative h-[500px] w-full overflow-hidden">
                                 <Image
                                     src={slide.image}
                                     alt={slide.title}
@@ -52,6 +74,6 @@ const HeroCarousel = () => {
             </Carousel>
         </section>
     );
-}
+};
 
 export default HeroCarousel;

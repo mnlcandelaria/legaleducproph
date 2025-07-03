@@ -34,14 +34,35 @@ const instructors = [
 export default function InstructorsSection() {
     return (
         <section className="py-16 px-6 md:px-12">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <motion.div
+                className="text-center mb-12"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ staggerChildren: 0.2 }}
+            >
+                <motion.h2
+                    className="text-3xl md:text-4xl font-bold text-gray-900"
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.6 }}
+                >
                     Meet Our Expert Instructors
-                </h2>
-                <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                </motion.h2>
+
+                <motion.p
+                    className="text-gray-600 mt-4 max-w-2xl mx-auto"
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                >
                     Learn from practicing attorneys and bar exam specialists with decades of combined experience
-                </p>
-            </div>
+                </motion.p>
+            </motion.div>
 
             <motion.div
                 className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"

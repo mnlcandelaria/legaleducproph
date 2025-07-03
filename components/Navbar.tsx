@@ -14,7 +14,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
-const Header = () => {
+const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
@@ -41,7 +41,7 @@ const Header = () => {
     }
 
     return (
-        <header className="fixed w-full border-b border-gray-200 dark:border-gray-800">
+        <header className="fixed w-full border-b border-gray-200 bg-white dark:bg-black dark:border-gray-800 z-100">
             <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -168,4 +168,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Navbar;
