@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import Image from "next/image";
 import React from "react";
 
-export default function Footer() {
+const Footer = () => {
     return (
         <motion.footer
             className="bg-[#0D172A] text-white px-6 py-10"
@@ -76,3 +76,5 @@ export default function Footer() {
         </motion.footer>
     )
 }
+
+export default Footer;
