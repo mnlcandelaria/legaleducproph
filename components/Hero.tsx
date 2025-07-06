@@ -12,7 +12,6 @@ import {
 import Image from 'next/image';
 import { CarouselApi } from "@/components/ui/carousel"; // <-- required for typing
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
     {
