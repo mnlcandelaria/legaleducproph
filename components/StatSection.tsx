@@ -14,9 +14,9 @@ const stats = [
 
 export default function StatsSection() {
     return (
-        <section className="border-b-[5px] border-[#176e79] py-10">
+        <section className="m-0 relative pb-10 sm:m-[-40px] ">
             <motion.div
-                className="max-w-7xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 text-center gap-y-10"
+                className="max-w-7xl bg-white mx-auto p-10 grid grid-cols-2 sm:grid-cols-4 text-center gap-y-10 shadow-md"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -31,10 +31,10 @@ export default function StatsSection() {
                         }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <h3 className="text-4xl font-bold text-[#176e79]">
+                        <h3 className="text-4xl font-bold text-primary">
                             <CountUp end={stat.value} duration={2} suffix={stat.suffix} />
                         </h3>
-                        <p className="text-sm mt-2 font-bold">{stat.label}</p>
+                        <p className="text-sm mt-2 font-light text-primary">{stat.label}</p>
                     </motion.div>
                 ))}
             </motion.div>

@@ -9,6 +9,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                playfair: 'var(--font-playfair)',
+            },
             // optional: add custom spacing like 72 = 18rem = 288px
             spacing: {
                 72: '18rem',

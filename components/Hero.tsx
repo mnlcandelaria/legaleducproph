@@ -37,7 +37,7 @@ const HeroCarousel = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             carouselRef.current?.scrollNext();
-        }, 4000); // every 3 seconds
+        }, 5000); // every 3 seconds
 
         return () => clearInterval(interval); // cleanup
     }, []);
@@ -52,7 +52,7 @@ const HeroCarousel = () => {
                 <CarouselContent>
                     {slides.map((slide, index) => (
                         <CarouselItem key={index}>
-                            <div className="relative h-[650px] w-full overflow-hidden">
+                            <div className="relative h-[700px] w-full overflow-hidden">
                                 <Image
                                     src={slide.image}
                                     alt={slide.title}
@@ -60,14 +60,14 @@ const HeroCarousel = () => {
                                     className="object-cover"
                                     priority={index === 0}
                                 />
-                                <div className="absolute inset-0 bg-primary/40 flex flex-col items-center justify-center px-6 text-white">
+                                <div className="absolute inset-0 bg-primary/60 flex flex-col items-center justify-center px-6 text-white">
                                     <div className="w-full max-w-7xl mx-auto text-left">
-                                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
                                             {slide.title}
                                         </h2>
                                         <p className="max-w-xl text-lg sm:text-xl">{slide.description}</p>
                                         {/* Shadcn Button */}
-                                        <Button className="mt-6">
+                                        <Button className="mt-6 bg-secondary" size="lg">
                                             Find out how we help
                                         </Button>
                                     </div>
@@ -76,8 +76,6 @@ const HeroCarousel = () => {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-transparent text-white " />
-                <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-transparent text-white "/>
             </Carousel>
         </section>
     );

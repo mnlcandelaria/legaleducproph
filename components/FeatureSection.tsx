@@ -8,19 +8,19 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const features = [
     {
-        icon: <Target className="text-yellow-600 w-6 h-6" />,
+        icon: <Target className="text-primary w-6 h-6" />,
         title: "Personalized Study Plans",
         description:
             "Tailored curriculum based on your strengths, weaknesses, and learning style for maximum efficiency.",
     },
     {
-        icon: <Users className="text-yellow-600 w-6 h-6" />,
+        icon: <Users className="text-primary w-6 h-6" />,
         title: "Expert Instructors",
         description:
             "Learn from experienced attorneys and bar exam specialists who know what it takes to succeed.",
     },
     {
-        icon: <Server className="text-yellow-600 w-6 h-6" />,
+        icon: <Server className="text-primary w-6 h-6" />,
         title: "Online Learning",
         description:
             "Access lectures and materials anytime, anywhere with our digital platform.",
@@ -29,7 +29,7 @@ const features = [
 
 export default function FeatureSection() {
     return (
-        <section className="bg-[#f9fcff] py-16">
+        <section className="bg-[#f9fcff] py-30">
             <motion.div
                 className="max-w-7xl mx-auto px-6 text-center"
                 initial="hidden"
@@ -38,7 +38,7 @@ export default function FeatureSection() {
                 transition={{ staggerChildren: 0.2 }}
             >
                 <motion.h2
-                    className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+                    className="text-3xl sm:text-4xl font-bold text-primary mb-4 font-playfair"
                     variants={{
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0 },
@@ -49,7 +49,7 @@ export default function FeatureSection() {
                 </motion.h2>
 
                 <motion.p
-                    className="text-gray-600 max-w-2xl mx-auto mb-10 text-lg"
+                    className="text-gray-600 max-w-2xl mx-auto mb-20 text-lg"
                     variants={{
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0 },
@@ -71,8 +71,8 @@ export default function FeatureSection() {
                         >
                             <Card className="shadow-md rounded-2xl p-6 bg-white h-full">
                                 <CardContent className="flex flex-col items-start space-y-4">
-                                    <div className="bg-yellow-100 p-3 rounded-xl">{feature.icon}</div>
-                                    <h3 className="text-lg font-semibold text-gray-800">{feature.title}</h3>
+                                    <div className="bg-[#88d398] p-3 rounded-xl">{feature.icon}</div>
+                                    <h3 className="text-lg font-semibold font-playfair">{feature.title}</h3>
                                     <p className="text-gray-600 text-sm text-justify">{feature.description}</p>
                                 </CardContent>
                             </Card>

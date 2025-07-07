@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -55,7 +61,8 @@
   --primary: oklch(0.435 0.11 203.8); /* #176e79 */
   /* --primary-foreground: oklch(0.97 0.014 254.604); */
   --primary-foreground: oklch(0.98 0.01 203.8); /* light text for contrast */
-  --secondary: oklch(0.967 0.001 286.375);
+  /* --secondary: oklch(0.967 0.001 286.375); */
+  --secondary: oklch(0.647 0.156 190.2); /* #1a946f */
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -120,10 +127,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply  m-0 p-0 box-border overflow-x-hidden bg-background text-foreground;
   }
+
   main {
-    @apply mx-auto flex flex-col bg-background h-full max-sm:px-2 pt-12;
+    @apply mx-auto flex flex-col bg-background h-full;
   }
   h1 {
     @apply text-3xl font-bold;

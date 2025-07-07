@@ -4,6 +4,14 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({
+    subsets: ['latin'],
+    variable: '--font-playfair',
+    display: 'swap',
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +35,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
             >
             <ThemeProvider attribute="class" defaultTheme="light">
                 <ConditionalLayout>

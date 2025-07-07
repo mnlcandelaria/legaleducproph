@@ -1,8 +1,12 @@
 'use client'
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import {Button} from "@/components/ui/button";
+import * as React from "react";
+import {MoveDown} from "lucide-react";
 
 const instructors = [
     {
@@ -25,45 +29,73 @@ const instructors = [
         name: "Jennifer Rodriguez, J.D.",
         title: "Contracts & Torts",
         description:
-            "Corporate attorney turned educator with a passion for making complex concepts accessible to all students.",
+            "Corporate attorney turned to educator with a passion for making a complex concepts that accessible to all students.",
+        school: "Columbia Law School",
+        experience: "10+ Years",
+    },
+    {
+        name: "Michael Chen, J.D.",
+        title: "Evidence & Criminal Law",
+        description:
+            "Former prosecutor with extensive trial experience. Expert in Evidence, Criminal Law, and Criminal Procedure.",
+        school: "Stanford Law School",
+        experience: "12+ Years",
+    },
+    {
+        name: "Jennifer Rodriguez, J.D.",
+        title: "Contracts & Torts",
+        description:
+            "Corporate attorney turned to educator with a passion for making a complex concepts that accessible to all students.",
         school: "Columbia Law School",
         experience: "10+ Years",
     },
 ];
 
+
 export default function InstructorsSection() {
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleInstructors = showAll ? instructors : instructors.slice(0, 3);
+
     return (
-        <section className="py-16 px-6 md:px-12">
-            <motion.div
-                className="text-center mb-12"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ staggerChildren: 0.2 }}
-            >
-                <motion.h2
-                    className="text-3xl md:text-4xl font-bold text-gray-900"
-                    variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.6 }}
+        <section className="pb-10">
+            <div className="relative h-[300px] w-full overflow-hidden mb-10">
+                <Image
+                    src={"/images/hero-1.jpg"}
+                    alt={"images"}
+                    fill
+                    className="object-cover"
+                />
+                <motion.div
+                    className="absolute inset-0 bg-primary/80 flex flex-col items-center text-center justify-center px-6 text-white"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ staggerChildren: 0.2 }}
                 >
-                    Meet Our Expert Instructors
-                </motion.h2>
+                    <motion.h2
+                        className="text-3xl md:text-4xl font-bold text-white font-playfair"
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        Meet Our Expert Instructors
+                    </motion.h2>
 
-                <motion.p
-                    className="text-gray-600 mt-4 max-w-2xl mx-auto"
-                    variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                >
-                    Learn from practicing attorneys and bar exam specialists with decades of combined experience
-                </motion.p>
-            </motion.div>
-
+                    <motion.p
+                        className="text-white mt-4 max-w-2xl mx-auto"
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                    >
+                        Learn from practicing attorneys and bar exam specialists with decades of combined experience
+                    </motion.p>
+                </motion.div>
+            </div>
             <motion.div
                 className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
                 initial="hidden"
@@ -76,7 +108,7 @@ export default function InstructorsSection() {
                     },
                 }}
             >
-                {instructors.map((instructor, i) => (
+                {visibleInstructors.map((instructor, i) => (
                     <motion.div
                         key={i}
                         variants={{
@@ -93,7 +125,7 @@ export default function InstructorsSection() {
                         whileHover={{ scale: 1.02 }}
                         transition={{ type: "spring", stiffness: 100 }}
                     >
-                        <Card className="overflow-hidden rounded-2xl shadow-sm bg-white">
+                        <Card className="overflow-hidden rounded-2xl shadow-sm bg-white min-h-[500px] flex flex-col justify-between">
                             <div className="bg-gray-200 h-48 flex items-center justify-center">
                                 <Image
                                     src="/images/user-placeholder.svg"
@@ -103,16 +135,10 @@ export default function InstructorsSection() {
                                     className="opacity-60"
                                 />
                             </div>
-                            <CardContent className="p-6 space-y-2">
-                                <h3 className="text-lg font-semibold text-gray-900">
-                                    {instructor.name}
-                                </h3>
-                                <p className="text-sm text-amber-700 font-medium">
-                                    {instructor.title}
-                                </p>
-                                <p className="text-sm text-gray-700">
-                                    {instructor.description}
-                                </p>
+                            <CardContent className="p-6 space-y-2 flex-1">
+                                <h3 className="text-lg font-semibold text-gray-900">{instructor.name}</h3>
+                                <p className="text-sm text-amber-700 font-medium">{instructor.title}</p>
+                                <p className="text-sm text-gray-700">{instructor.description}</p>
                                 <div className="text-sm text-gray-500 pt-2 flex items-center gap-2">
                                     <span>{instructor.school}</span>
                                     <span className="mx-1">•</span>
@@ -123,6 +149,16 @@ export default function InstructorsSection() {
                     </motion.div>
                 ))}
             </motion.div>
+            {!showAll && (
+                <div className="text-center mt-10">
+                    <Button
+                        onClick={() => setShowAll(true)}
+                        className="px-6 py-2 rounded-full transition bg-secondary" size="lg"
+                    >
+                        <MoveDown /> Load More
+                    </Button>
+                </div>
+            )}
         </section>
     );
 }
