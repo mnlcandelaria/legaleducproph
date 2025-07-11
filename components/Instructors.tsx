@@ -4,49 +4,82 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import * as React from "react";
-import {MoveDown} from "lucide-react";
+import { MoveDown} from "lucide-react";
+import Link from "next/link";
 
 const instructors = [
     {
-        name: "Sarah Mitchell, J.D.",
-        title: "Constitutional Law Expert",
+        name: "Anna Maria \"ADA\" Dalena Abad",
+        title: "Dean, Adamson University College of Law",
+        image: "/images/abad-ana.jpg",
         description:
-            "Former Supreme Court clerk with 15 years of teaching experience. Specializes in Constitutional Law and Civil Procedure.",
-        school: "Harvard Law School",
+            "Award-winning lawyer, law dean, legal scholar, and managing partner with decades’ experience.",
+        school: "University of the Philippines",
+        experience: "30+ Years",
+    },
+    {
+        name: "Judge Philip A. Aguinaldo",
+        title: "Presiding Judge, RTC 207, Muntinlupa",
+        image: "/images/aguinaldo-philip.jpg",
+        description:
+            "Respected judge, legal educator, bar reviewer, Fulbright fellow, and international law expert.",
+        school: "University of Santo Tomas",
+        experience: "40+ Years",
+    },
+    {
+        name: "Judge Janice L. Andrade-Udarbe",
+        title: "Presiding Judge, RTC 57, Lucena",
+        image: "/images/udarbe-janice.jpg",
+        description:
+            "Understanding rules on evidence, admissibility, and judicial notice in proceedings.",
+        school: "Law School",
         experience: "15+ Years",
     },
     {
-        name: "Michael Chen, J.D.",
+        name: "Atty. Kristy Jane M. Balino",
         title: "Evidence & Criminal Law",
+        image: "/images/balino-kristy.jpg",
         description:
-            "Former prosecutor with extensive trial experience. Expert in Evidence, Criminal Law, and Criminal Procedure.",
-        school: "Stanford Law School",
-        experience: "12+ Years",
-    },
-    {
-        name: "Jennifer Rodriguez, J.D.",
-        title: "Contracts & Torts",
-        description:
-            "Corporate attorney turned to educator with a passion for making a complex concepts that accessible to all students.",
-        school: "Columbia Law School",
+            "Accomplished litigator, law professor, and AI lecturer with strong academic legal credentials.",
+        school: "San Sebastian College",
         experience: "10+ Years",
     },
     {
-        name: "Michael Chen, J.D.",
-        title: "Evidence & Criminal Law",
+        name: "Anna Maria \"ADA\" Dalena Abad",
+        title: "Dean, Adamson University College of Law",
+        image: "/images/abad-ana.jpg",
         description:
-            "Former prosecutor with extensive trial experience. Expert in Evidence, Criminal Law, and Criminal Procedure.",
-        school: "Stanford Law School",
-        experience: "12+ Years",
+            "Award-winning lawyer, law dean, legal scholar, and managing partner with decades’ experience.",
+        school: "University of the Philippines",
+        experience: "30+ Years",
     },
     {
-        name: "Jennifer Rodriguez, J.D.",
-        title: "Contracts & Torts",
+        name: "Judge Philip A. Aguinaldo",
+        title: "Presiding Judge, RTC 207, Muntinlupa",
+        image: "/images/aguinaldo-philip.jpg",
         description:
-            "Corporate attorney turned to educator with a passion for making a complex concepts that accessible to all students.",
-        school: "Columbia Law School",
+            "Respected judge, legal educator, bar reviewer, Fulbright fellow, and international law expert.",
+        school: "University of Santo Tomas",
+        experience: "40+ Years",
+    },
+    {
+        name: "Judge Janice L. Andrade-Udarbe",
+        title: "Presiding Judge, RTC 57, Lucena",
+        image: "/images/udarbe-janice.jpg",
+        description:
+            "Understanding rules on evidence, admissibility, and judicial notice in proceedings.",
+        school: "Law School",
+        experience: "15+ Years",
+    },
+    {
+        name: "Atty. Kristy Jane M. Balino",
+        title: "Evidence & Criminal Law",
+        image: "/images/balino-kristy.jpg",
+        description:
+            "Accomplished litigator, law professor, and AI lecturer with strong academic legal credentials.",
+        school: "San Sebastian College",
         experience: "10+ Years",
     },
 ];
@@ -55,7 +88,7 @@ const instructors = [
 export default function InstructorsSection() {
     const [showAll, setShowAll] = useState(false);
 
-    const visibleInstructors = showAll ? instructors : instructors.slice(0, 3);
+    const visibleInstructors = showAll ? instructors : instructors.slice(0, 4);
 
     return (
         <section className="pb-10">
@@ -97,7 +130,7 @@ export default function InstructorsSection() {
                 </motion.div>
             </div>
             <motion.div
-                className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
+                className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1400px] mx-auto"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -122,31 +155,52 @@ export default function InstructorsSection() {
                                 },
                             },
                         }}
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.04 }}
                         transition={{ type: "spring", stiffness: 100 }}
                     >
-                        <Card className="overflow-hidden rounded-2xl shadow-sm bg-white min-h-[500px] flex flex-col justify-between">
-                            <div className="bg-gray-200 h-48 flex items-center justify-center">
-                                <Image
-                                    src="/images/user-placeholder.svg"
-                                    alt="Instructor"
-                                    width={64}
-                                    height={64}
-                                    className="opacity-60"
-                                />
+                        <Card className="group mx-auto overflow-hidden shadow-md text-center p-0">
+                            {/* Top Banner */}
+                            <div className="bg-primary h-24 relative rounded-t-2xl">
+                                {/* Profile Image */}
+                                {/* Profile Image */}
+                                <div className="absolute left-1/2 -bottom-15 transform -translate-x-1/2 z-10">
+                                    <div className="w-[120px] h-[120px] rounded-full border-6 border-white group-hover:border-primary transition-colors duration-300 overflow-hidden">
+                                        <Image
+                                            src={instructor.image}
+                                            alt={instructor.name}
+                                            width={120}
+                                            height={120}
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <CardContent className="p-6 space-y-2 flex-1">
-                                <h3 className="text-lg font-semibold text-gray-900">{instructor.name}</h3>
-                                <p className="text-sm text-amber-700 font-medium">{instructor.title}</p>
-                                <p className="text-sm text-gray-700">{instructor.description}</p>
-                                <div className="text-sm text-gray-500 pt-2 flex items-center gap-2">
+
+                            {/* Card Content */}
+                            <CardContent className="pt-14 pb-6">
+                                <div>
+                                    <h3 className="font-bold text-tertiary">{instructor.name}</h3>
+                                    <p className="text-sm font-bold text-secondary">{instructor.title}</p>
+                                </div>
+
+                                <div className="text-center pt-3 pb-3">
+                                    <p className="text-gray-500 text-sm">{instructor.description}</p>
+                                </div>
+
+                                {/* Stats */}
+                                <div className="text-sm text-gray-500 justify-center flex items-center gap-2">
                                     <span>{instructor.school}</span>
-                                    <span className="mx-1">•</span>
+                                    <span className="mx-0.5">•</span>
                                     <span>{instructor.experience}</span>
+                                </div>
+
+                                <div className="gap-4 pt-2 text-gray-600 text-center">
+                                    <Link href="#" className="text-sm underline hover:no-underline hover:text-tertiary">See Profile</Link>
                                 </div>
                             </CardContent>
                         </Card>
                     </motion.div>
+
                 ))}
             </motion.div>
             {!showAll && (

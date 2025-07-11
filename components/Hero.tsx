@@ -58,7 +58,7 @@ const HeroCarousel = () => {
                                     className="object-cover"
                                     priority={index === 0}
                                 />
-                                <div className="absolute inset-0 bg-primary/60 flex flex-col items-center justify-center px-6 text-white">
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#176e79]/80 to-black/90 flex flex-col items-center justify-center px-6 text-white">
                                     <div className="w-full max-w-7xl mx-auto text-left">
                                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
                                             {slide.title}

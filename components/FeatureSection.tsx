@@ -38,7 +38,7 @@ export default function FeatureSection() {
                 transition={{ staggerChildren: 0.2 }}
             >
                 <motion.h2
-                    className="text-3xl sm:text-4xl font-bold text-primary mb-4 font-playfair"
+                    className="text-3xl text-tertiary sm:text-4xl font-bold mb-4 font-playfair"
                     variants={{
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0 },

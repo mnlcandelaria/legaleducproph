@@ -34,7 +34,7 @@ export default function StatsSection() {
                         <h3 className="text-4xl font-bold text-primary">
                             <CountUp end={stat.value} duration={2} suffix={stat.suffix} />
                         </h3>
-                        <p className="text-sm mt-2 font-light text-primary">{stat.label}</p>
+                        <p className="text-sm mt-2 font-light text-gray-600">{stat.label}</p>
                     </motion.div>
                 ))}
             </motion.div>

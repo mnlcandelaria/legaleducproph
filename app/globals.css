@@ -3,8 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
-
 .font-playfair {
   font-family: var(--font-playfair);
 }
@@ -62,8 +60,10 @@
   /* --primary-foreground: oklch(0.97 0.014 254.604); */
   --primary-foreground: oklch(0.98 0.01 203.8); /* light text for contrast */
   /* --secondary: oklch(0.967 0.001 286.375); */
-  --secondary: oklch(0.647 0.156 190.2); /* #1a946f */
+  /* --secondary: oklch(0.647 0.156 190.2); #1a946f */
+  --secondary: oklch(0.684 0.174 191.13); /* #00a699 */
   --secondary-foreground: oklch(0.21 0.006 285.885);
+  --tertiary: oklch(0.265 0.061 264.34); /* #002642 */
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
@@ -135,5 +135,19 @@
   }
   h1 {
     @apply text-3xl font-bold;
+  }
+}
+
+@layer utilities {
+  .bg-tertiary {
+    background-color: var(--tertiary); /* #162443 */
+  }
+
+  .text-tertiary {
+    color: var(--tertiary); /* #162443 */
+  }
+
+  .border-tertiary {
+    color: var(--tertiary); /* #162443 */
   }
 }

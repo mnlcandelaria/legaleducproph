@@ -34,7 +34,7 @@ const ContactSection = () => {
                 transition={{ staggerChildren: 0.2 }}
             >
                 <motion.h2
-                    className="text-3xl md:text-4xl font-bold font-playfair text-primary"
+                    className="text-3xl md:text-4xl font-bold font-playfair text-tertiary"
                     variants={{
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0 },
@@ -129,7 +129,7 @@ const ContactSection = () => {
 
                     <Textarea placeholder="Tell us about your goals and any questions you have..." />
 
-                    <Button className="w-full mt-2.5 bg-secondary p-6" size="lg">
+                    <Button className="w-full mt-2.5 bg-tertiary p-6" size="lg">
                         <Calendar className="w-4 h-4 mr-2" />
                         Schedule Free Consultation
                     </Button>
