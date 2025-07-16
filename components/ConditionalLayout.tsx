@@ -12,7 +12,7 @@ export default function ConditionalLayout({ children }: {
 
     // Check if we're on auth pages
     const isAuthPage = pathname === '/login' ||
-        pathname === '/register' ||
+        pathname === '/signuo' ||
         pathname.startsWith('/auth');
 
     return (

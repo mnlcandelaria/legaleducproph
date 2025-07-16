@@ -60,15 +60,15 @@ const Navbar = () => {
                             <Image
                                 src={"/images/logo.png"}
                                 alt={"logo"}
-                                width={46}
-                                height={46}
+                                width={55}
+                                height={55}
                             />
                             <h1
-                                className={`text-xl font-bold font-playfair ${
+                                className={`text-2xl font-bold font-playfair ${
                                     scrolled ? "text-black" : "text-white"
                                 }`}
                             >
-                                Legal Educ Pro PH
+                                LegalEducProPH
                             </h1>
                         </div>
                     </motion.div>

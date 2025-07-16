@@ -3,27 +3,33 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Target, Users, Server } from "lucide-react"
+import { Target, Users, Server, AlarmClockCheck } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 const features = [
     {
-        icon: <Target className="text-primary w-6 h-6" />,
+        icon: <Target className="text-primary w-10 h-10" />,
         title: "Personalized Study Plans",
         description:
             "Tailored curriculum based on your strengths, weaknesses, and learning style for maximum efficiency.",
     },
     {
-        icon: <Users className="text-primary w-6 h-6" />,
+        icon: <Users className="text-primary w-10 h-10" />,
         title: "Expert Instructors",
         description:
             "Learn from experienced attorneys and bar exam specialists who know what it takes to succeed.",
     },
     {
-        icon: <Server className="text-primary w-6 h-6" />,
+        icon: <Server className="text-primary w-10 h-10" />,
         title: "Online Learning",
         description:
             "Access lectures and materials anytime, anywhere with our digital platform.",
+    },
+    {
+        icon: <AlarmClockCheck className="text-primary w-10 h-10" />,
+        title: "Real-Time Progress Tracking",
+        description:
+            "Monitor your performance with detailed analytics and feedback to stay on top of your goals.",
     },
 ]
 
@@ -45,7 +51,7 @@ export default function FeatureSection() {
                     }}
                     transition={{ duration: 0.5 }}
                 >
-                    Why Choose Legal Educ Pro PH?
+                    Why Choose LegalEducProPH?
                 </motion.h2>
 
                 <motion.p
@@ -59,7 +65,7 @@ export default function FeatureSection() {
                     Our comprehensive approach combines proven strategies, expert instruction, and personalized support
                 </motion.p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -70,10 +76,10 @@ export default function FeatureSection() {
                             transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
                         >
                             <Card className="shadow-md rounded-2xl p-6 bg-white h-full">
-                                <CardContent className="flex flex-col items-start space-y-4">
-                                    <div className="bg-[#88d398] p-3 rounded-xl">{feature.icon}</div>
+                                <CardContent className="flex flex-col items-center space-y-4">
+                                    <div className="bg-[#88d398] p-3 rounded-xl ">{feature.icon}</div>
                                     <h3 className="text-lg font-semibold font-playfair">{feature.title}</h3>
-                                    <p className="text-gray-600 text-sm text-justify">{feature.description}</p>
+                                    <p className="text-gray-600 text-sm">{feature.description}</p>
                                 </CardContent>
                             </Card>
                         </motion.div>

@@ -17,21 +17,73 @@ const Footer = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
         >
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
                 {/* Logo & Description */}
                 <div>
-                    <div className="flex items-center gap-2 font-bold text-xl mb-2">
+                    <div className="flex items-center gap-3 font-bold text-xl mb-2">
                         <Image
                             src={"/images/logo.png"}
                             alt={"logo"}
                             width={46}
                             height={46}
                         />
-                        <span>Legal Educ Pro PH</span>
+                        <span>LegalEducProPH</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                         Helping future attorneys pass the bar exam with confidence for over 25 years.
                     </p>
+                </div>
+
+                {/* Government */}
+                <div>
+                    <h4 className="font-semibold text-white mb-3">Government</h4>
+                    <ul className="space-y-2 text-sm text-gray-300">
+                        <li>
+                            <Link
+                                href="https://www.umak.edu.ph/academics/college/school-of-law/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline">
+                                University of Makati School of Law
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="https://sc.judiciary.gov.ph/home-office-of-the-bar-confidant/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline">
+                                Office of the Bar Confidant
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="https://sc.judiciary.gov.ph/judicial-bar-and-council/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline">
+                                Judicial and Bar Council
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="https://leb.gov.ph/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline">
+                                Legal Education Board
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="https://sc.judiciary.gov.ph/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline">
+                                Supreme Court
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
 
                 {/* Programs */}
@@ -71,7 +123,7 @@ const Footer = () => {
             <Separator className="my-8 bg-gray-700" />
 
             <div className="text-center text-sm text-gray-400">
-                © 2025 Legal Educ Pro PH. All rights reserved.
+                © 2025 LegalEducProPH. All rights reserved.
             </div>
         </motion.footer>
     )

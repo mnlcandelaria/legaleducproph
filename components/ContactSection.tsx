@@ -64,33 +64,64 @@ const ContactSection = () => {
                     viewport={{ once: true }}
                     variants={fadeLeft}
                 >
-                    <h3 className="text-xl font-bold text-gray-900">Contact Information</h3>
-                    <div className="space-y-6">
+                    <h3 className="text-xl font-bold text-gray-900">Bar Review</h3>
+                    <div className="space-y-2">
                         <div className="flex items-start gap-4">
-                            <Phone className="text-[#f59e0b] mt-1" />
+                            <Phone className="text-secondary m mt-1" />
                             <div>
                                 <p className="font-semibold text-gray-900">Phone</p>
-                                <p className="text-gray-700">(555) 123-4567</p>
-                                <p className="text-sm text-gray-500">Mon–Fri 8am–8pm EST</p>
+                                <p className="text-gray-700">0927 533 5557 </p>
                             </div>
                         </div>
 
                         <div className="flex items-start gap-4">
-                            <Mail className="text-[#f59e0b] mt-1" />
+                            <Mail className="text-secondary mt-1" />
                             <div>
                                 <p className="font-semibold text-gray-900">Email</p>
-                                <p className="text-gray-700">info@umaklawreview.com</p>
-                                <p className="text-sm text-gray-500">We respond within 24 hours</p>
+                                <p className="text-gray-700">support@legaleducprobarreview.org</p>
                             </div>
                         </div>
 
                         <div className="flex items-start gap-4">
-                            <MapPin className="text-[#f59e0b] mt-1" />
+                            <MapPin className="text-secondary m mt-1" />
                             <div>
                                 <p className="font-semibold text-gray-900">Address</p>
                                 <p className="text-gray-700">
-                                    123 Legal Plaza, Suite 450<br />
-                                    New York, NY 10001
+                                    Unit 310-311 Residenciale Boutique <br /> Apartment 132 Kalayaan Avenue,
+                                    Diliman, Quezon City
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900">Refresher Course</h3>
+                    <div className="space-y-2">
+                        <div className="flex items-start gap-4">
+                            <Phone className="text-secondary mt-1" />
+                            <div>
+                                <p className="font-semibold text-gray-900">Phone</p>
+                                <p className="text-gray-700">0927 464 2968 / 0927 464 4383 / 0927 464 2967</p>
+                                <p className="text-gray-700"></p>
+                                <p className="text-gray-700"></p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <Mail className="text-secondary mt-1" />
+                            <div>
+                                <p className="font-semibold text-gray-900">Email</p>
+                                <p className="text-gray-700">support@legaleducprobarreview.org </p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <MapPin className="text-secondary mt-1" />
+                            <div>
+                                <p className="font-semibold text-gray-900">Address</p>
+                                <p className="text-gray-700">
+                                    Unit 310-311 Residenciale Boutique <br/>Apartment 132 Kalayaan Avenue,
+                                    Diliman, Quezon City
                                 </p>
                             </div>
                         </div>

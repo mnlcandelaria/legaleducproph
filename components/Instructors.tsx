@@ -114,7 +114,7 @@ export default function InstructorsSection() {
                         }}
                         transition={{ duration: 0.6 }}
                     >
-                        Meet Our Expert Instructors
+                        Meet Our Legal Educators
                     </motion.h2>
 
                     <motion.p
