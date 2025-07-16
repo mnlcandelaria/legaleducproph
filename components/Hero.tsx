@@ -1,80 +1,67 @@
 'use client';
 
-import * as React from 'react';
-import { useEffect, useRef } from 'react';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-} from "@/components/ui/carousel";
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { CarouselApi } from "@/components/ui/carousel"; // <-- required for typing
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 const slides = [
     {
-        image: "/images/hero1.jpg",
-        title: "Legal Education Made Simple",
-        description: "Your partner in understanding PH law—easy, accessible, and reliable.",
+        image: '/images/hero1.jpg',
+        title: 'Legal Education Made Simple',
+        description: 'Your partner in understanding PH law—easy, accessible, and reliable.',
     },
     {
-        image: "/images/hero2.jpg",
-        title: "Learn Anywhere, Anytime",
-        description: "All your legal topics in one platform—tailored for Filipino students.",
+        image: '/images/hero2.jpg',
+        title: 'Learn Anywhere, Anytime',
+        description: 'All your legal topics in one platform—tailored for Filipino students.',
     },
     {
-        image: "/images/hero3.jpg",
-        title: "Ace the Bar Exams",
-        description: "Structured content for success. Study smarter with Legal Educ Pro PH.",
+        image: '/images/hero3.jpg',
+        title: 'Ace the Bar Exams',
+        description: 'Structured content for success. Study smarter with Legal Educ Pro PH.',
     },
 ];
 
 const HeroCarousel = () => {
-    const carouselRef = useRef<CarouselApi | null>(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            carouselRef.current?.scrollNext();
-        }, 5000); // every 3 seconds
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000); // 5 seconds
 
-        return () => clearInterval(interval); // cleanup
+        return () => clearInterval(interval);
     }, []);
 
     return (
-        <section className="w-full relative">
-            <Carousel
-                opts={{ loop: true }}
-                setApi={(api) => (carouselRef.current = api)}
-                className="w-full"
-            >
-                <CarouselContent>
-                    {slides.map((slide, index) => (
-                        <CarouselItem key={index}>
-                            <div className="relative h-[700px] w-full overflow-hidden">
-                                <Image
-                                    src={slide.image}
-                                    alt={slide.title}
-                                    fill
-                                    className="object-cover"
-                                    priority={index === 0}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#176e79]/80 to-black/90 flex flex-col items-center justify-center px-6 text-white">
-                                    <div className="w-full max-w-7xl mx-auto text-left">
-                                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
-                                            {slide.title}
-                                        </h2>
-                                        <p className="max-w-xl text-lg sm:text-xl">{slide.description}</p>
-                                        {/* Shadcn Button */}
-                                        <Button className="mt-6 bg-secondary" size="lg">
-                                            Find out how we help
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
+        <section className="w-full relative h-[700px] overflow-hidden">
+            {slides.map((slide, index) => (
+                <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                        index === currentSlide ? 'opacity-100 z-5' : 'opacity-0 z-0'
+                    }`}
+                >
+                    <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#176e79]/80 to-black/90 flex flex-col items-center justify-center px-6 text-white">
+                        <div className="w-full max-w-7xl mx-auto text-left">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
+                                {slide.title}
+                            </h2>
+                            <p className="max-w-xl text-lg sm:text-xl">{slide.description}</p>
+                            <Button className="mt-6 bg-secondary" size="lg">
+                                Find out how we help
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </section>
     );
 };

@@ -14,7 +14,7 @@ const stats = [
 
 export default function StatsSection() {
     return (
-        <section className="m-0 relative pb-10 sm:m-[-40px] ">
+        <section className="m-0 relative pb-10 sm:m-[-40px] z-10">
             <motion.div
                 className="max-w-7xl bg-white mx-auto p-10 grid grid-cols-2 sm:grid-cols-4 text-center gap-y-10 shadow-md"
                 initial="hidden"
