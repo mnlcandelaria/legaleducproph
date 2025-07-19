@@ -6,8 +6,8 @@ import FeatureSection from "@/components/FeatureSection";
 import ContactSection from "@/components/ContactSection";
 import SuccessStories from "@/components/SuccessStories";
 
-const Page = () => {
-  return (
+const Page = async () => {
+    return (
       <main>
           <HeroCarousel />
           <StatSection />
@@ -16,7 +16,7 @@ const Page = () => {
           <ContactSection />
           <SuccessStories />
       </main>
-  )
+    )
 }
 
 export default Page

@@ -11,22 +11,32 @@ import {
     SheetTitle,
 } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const [scrolled, setScrolled] = useState(false); // ← track scroll state
+    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname(); // ← Get current path
 
     useEffect(() => {
         setMounted(true);
 
+        const forceScrolledPages = ["/legal"];
+        const isForceScrolled = forceScrolledPages.some((path) =>
+          pathname.startsWith(path)
+        );
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            const hasScrolled = window.scrollY > 20;
+            setScrolled(hasScrolled || isForceScrolled);
         };
+
+        handleScroll(); // trigger once on mount
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [pathname]);
 
     if (!mounted) return null;
 

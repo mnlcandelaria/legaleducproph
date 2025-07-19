@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
+import Link from "next/link";
 
 export function SignUpForm({
                                className,
@@ -78,8 +79,8 @@ export function SignUpForm({
             </Card>
 
             <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-                By signing up, you agree to our <a href="#">Terms of Service</a> and{" "}
-                <a href="#">Privacy Policy</a>.
+                By signing up, you agree to our <Link href="/legal/terms">Terms of Service</Link>. and{" "}
+                <Link href="/legal/privacy">Privacy Policy</Link>..
             </div>
         </div>
     )

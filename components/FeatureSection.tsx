@@ -3,7 +3,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Target, Users, Server, AlarmClockCheck } from "lucide-react"
+import { Target, Users, Server, PencilRuler } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 const features = [
@@ -26,10 +26,10 @@ const features = [
             "Access lectures and materials anytime, anywhere with our digital platform.",
     },
     {
-        icon: <AlarmClockCheck className="text-primary w-10 h-10" />,
-        title: "Real-Time Progress Tracking",
+        icon: <PencilRuler className="text-primary w-10 h-10" />,
+        title: "Interactive Learning Tools",
         description:
-            "Monitor your performance with detailed analytics and feedback to stay on top of your goals.",
+            "Engage with quizzes and practice exams to reinforce concepts and boost retention online.",
     },
 ]
 

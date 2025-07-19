@@ -6,6 +6,7 @@ const config: Config = {
         './app/**/*.{ts,tsx}',
         './components/**/*.{ts,tsx}',
         './pages/**/*.{ts,tsx}',
+        './content/**/*.{md}',
     ],
     theme: {
         extend: {
@@ -21,7 +22,7 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
+    plugins: []
 }
 
 export default config
