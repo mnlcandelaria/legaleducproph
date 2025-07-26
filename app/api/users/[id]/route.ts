@@ -7,10 +7,12 @@ import UserModel from '@/models/User';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
+
+    const { params } = context;
 
     if (!session?.user?.email) {
       return NextResponse.json(
@@ -49,10 +51,12 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
+
+    const { params } = context;
 
     if (!session?.user?.email) {
       return NextResponse.json(
