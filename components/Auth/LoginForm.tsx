@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { LoginData } from "@/types";
 
 export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState("");

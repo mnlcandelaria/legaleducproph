@@ -39,5 +39,4 @@ class Database {
   }
 }
 
-// @ts-ignore
 export default Database;
