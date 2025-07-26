@@ -1,6 +1,5 @@
 // components/footer.tsx
-
-"use client"
+'use client'
 
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
@@ -11,7 +10,7 @@ import React from "react";
 const Footer = () => {
     return (
         <motion.footer
-            className="text-white bg-tertiary px-6 py-10"
+            className='text-white bg-tertiary px-6 py-10'
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}

@@ -8,6 +8,7 @@ type Props = {
     slug: string;
   }>;
 };
+
 export default async function LegalPage({ params }: Props) {
   // Await the params Promise
   const { slug } = await params;

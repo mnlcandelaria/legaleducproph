@@ -6,6 +6,8 @@ import ConditionalLayout from "@/components/ConditionalLayout";
 
 import { Playfair_Display } from 'next/font/google';
 
+import Providers from './providers';
+
 const playfair = Playfair_Display({
     subsets: ['latin'],
     variable: '--font-playfair',
@@ -37,11 +39,13 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
             >
-            <ThemeProvider attribute="class" defaultTheme="light">
-                <ConditionalLayout>
-                    {children}
-                </ConditionalLayout>
-            </ThemeProvider>
+            <Providers>
+              <ThemeProvider attribute="class" defaultTheme="light">
+                  <ConditionalLayout>
+                      {children}
+                  </ConditionalLayout>
+              </ThemeProvider>
+            </Providers>
             </body>
         </html>
     );
