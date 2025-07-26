@@ -34,22 +34,16 @@ import {useEffect, useState} from 'react';
 import {useRouter} from 'next/navigation';
 
 export function NavUser() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [name, setName] = useState<string | null>();
   const [email, setEmail] = useState<string | null>();
   const [avatar, setAvatar] = useState<string | undefined>();
 
-  const router = useRouter();
-
   useEffect(() => {
-    if (status !== "authenticated") {
-      router.push("/login");
-    }
-
     setName(session?.user?.name);
     setEmail(session?.user?.email);
     setAvatar(session?.user?.image ?? "/avatars/shadcn.jpg");
-  }, [status, router, session?.user?.name, session?.user?.email, session?.user?.image, setAvatar]);
+  }, [session?.user?.name, session?.user?.email, session?.user?.image, setAvatar]);
 
   const { isMobile } = useSidebar()
 
