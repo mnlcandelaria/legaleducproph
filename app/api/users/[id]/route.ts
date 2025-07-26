@@ -5,13 +5,9 @@ import { authOptions } from '@/lib/auth';
 import { connectToDatabase } from "@/lib/actions/database.action";
 import UserModel from '@/models/User';
 
-interface RouteContext {
-  params: Promise<{ id: string }> | { id: string }
-}
-
 export async function GET(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -22,8 +18,6 @@ export async function GET(
         { status: 401 }
       );
     }
-
-    const params = await Promise.resolve(context.params);
 
     await connectToDatabase();
     const user = await UserModel.findById(params.id);
@@ -55,7 +49,7 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -66,8 +60,6 @@ export async function DELETE(
         { status: 401 }
       );
     }
-
-    const params = await Promise.resolve(context.params);
 
     await connectToDatabase();
     const user = await UserModel.findById(params.id);
