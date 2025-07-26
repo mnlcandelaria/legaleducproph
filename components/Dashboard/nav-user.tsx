@@ -31,7 +31,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import {useEffect, useState} from 'react';
-import {useRouter} from 'next/navigation';
 
 export function NavUser() {
   const { data: session } = useSession();
