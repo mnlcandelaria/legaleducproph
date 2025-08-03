@@ -6,10 +6,10 @@ import { motion } from "framer-motion"
 import CountUp from "react-countup"
 
 const stats = [
-    { value: 94, suffix: "%", label: "Pass Rate" },
-    { value: 15, suffix: "K+", label: "Students" },
-    { value: 25, suffix: "+", label: "Years Experience" },
-    { value: 50, suffix: "+", label: "States Covered" },
+  { value: 94, suffix: "%", label: "Pass Rate" },
+  { value: 15, suffix: "K+", label: "Students" },
+  { value: 25, suffix: "+", label: "Years Experience" },
+  { value: 50, suffix: "+", label: "States Covered" },
 ]
 
 export default function StatsSection() {

@@ -68,13 +68,13 @@ const Navbar = () => {
                     >
                         <div className="flex items-center gap-3">
                             <Image
-                                src={"/images/logo.png"}
+                                src={`${scrolled ? "/images/logo.png" : "/images/logo-white.png"}`}
                                 alt={"logo"}
-                                width={55}
+                                width={285}
                                 height={55}
                             />
                             <h1
-                                className={`text-2xl font-bold font-playfair ${
+                                className={`text-2xl font-bold hidden font-playfair ${
                                     scrolled ? "text-black" : "text-white"
                                 }`}
                             >

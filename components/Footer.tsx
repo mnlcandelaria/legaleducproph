@@ -21,12 +21,12 @@ const Footer = () => {
                 <div>
                     <div className="flex items-center gap-3 font-bold text-xl mb-2">
                         <Image
-                            src={"/images/logo.png"}
+                            src={"/images/logo-white.png"}
                             alt={"logo"}
-                            width={46}
+                            width={238}
                             height={46}
                         />
-                        <span>LegalEducProPH</span>
+                        <span className="hidden">LegalEducProPH</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                         Helping future attorneys pass the bar exam with confidence for over 25 years.
